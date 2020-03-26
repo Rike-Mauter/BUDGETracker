@@ -1,0 +1,37 @@
+<!-- Displays a list of all incomes after a new income is added -->
+
+{% extends 'budget_app/budget_base.html' %}
+
+{% block content %}
+
+<body>
+
+  </br>
+  <h2>Your Incomes</h2>
+  </br>
+  <p><button class="button1"><a href="/budget_app/userdetails/">Add new income</a></button></p> 
+  </br>
+
+  <table id="t01">
+
+    <tr>
+      <th>Income name</th>
+      <th>Income</th>
+      <th>Date</th>
+    </tr>
+
+    {% for item in users1 %}
+    <tr>
+      <td>{{ item.income_name }}</td>
+      <td>{{ item.income }}</td>
+      <td>{{ item.date_added|date:"d M Y" }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br>
+
+</body>
+
+{% endblock %}  
+
+

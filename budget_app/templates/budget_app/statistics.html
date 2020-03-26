@@ -1,0 +1,18 @@
+{% extends 'budget_app/budget_base.html' %}
+
+{% block title %}Statistics{% endblock title %}
+{% block content %}  
+
+</br>
+<h1 style="text-align:center;">Keep an overview of your spending behaviour</h1>
+<h1 style="text-align:center;"><b>{{title_date}}:</b></h1>
+
+</br>
+</br>
+</br>
+
+<img style='float: inline-start; padding-left: 50px;' src="/budget_app/line_plot/" height="350px"/>
+<img style='float:right; padding-right:50px;' src="/budget_app/pie_plot/" height="350px"/>
+        
+{% endblock content %}
+

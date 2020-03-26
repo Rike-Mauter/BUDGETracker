@@ -1,0 +1,73 @@
+
+{% extends 'budget_app/budget_base.html' %}
+{% load staticfiles %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}  
+
+<style>
+.block_content {
+    background-color: white;
+}
+</style>
+
+<body>
+{% if user.is_authenticated %}
+
+<div class='block-container'>
+  <div class='block1'>
+    <h3 style="text-align:center; color:rgb(255, 255, 255); font-weight: bold; font-size: 35px; ">Hi {{ user.username }}!</h3>
+    <h5 style="text-align:center; font-size: 25px; color:rgb(255, 255, 255);">Welcome to the BudgeTracker App.</h5>
+  </div>
+</div>
+
+<div class="block2">
+  <h2 style="text-align:center; color: rgb(28, 28, 28); font-weight: bold; padding-top: 50px;">{{title}}:</h2>
+  </br>
+  <div class="budget_info" style="background-color: white;">
+    <h3 class='center'>Total budget: <span style="color:green;">{{total_budget}}</span> €</h3>
+    <h3 class='center'>Spendings: <span style="color:red;">{{total_expenses}}</span> €</h3>
+    <h3 class='center'>Left budget: <span style="color: orange;">{{left_budget}}</span> €</h3>
+  </div>
+</div>  
+
+<div class='block3'>
+  <h3 style="font-size: 32px; color:rgb(227, 49, 120)"> 
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path 
+      d="M13 16h-2v-6h2v6zm-1-10.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 
+      1.25-1.25zm0-2.75c5.514 0 10 3.592 10 8.007 0 4.917-5.145 7.961-9.91 7.961-1.937 0-3.383-.397-4.394-.644-1 
+      .613-1.595 1.037-4.272 1.82.535-1.373.723-2.748.602-4.265-.838-1-2.025-2.4-2.025-4.872-.001-4.415 4.485-8.007 
+      9.999-8.007zm0-2c-6.338 0-12 4.226-12 10.007 0 2.05.738 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 
+      2.602-.47 6.301-1.508 7.978-2.536 1.418.345 2.775.503 4.059.503 7.084 0 
+      11.91-4.837 11.91-9.961-.001-5.811-5.702-10.006-12.001-10.006z"/>
+    </svg>  
+    About BUDGETracker 
+  </h3>
+  </br>
+  </br>
+  <p style="font-size: 18px;">
+    This app is designed to manage your personal finances. It gives you a real-time glimpse of your income and spending trends. 
+  </br>
+  </br>
+  <ol style="list-style-type: decimal;  line-height: 2.5;">
+    <li>Simpy add your incomes and spendings under <strong>"New Income/ Spending"</strong>.</li>
+    <li>In your <strong>"History"</strong> you get a listing of all your spendings, which you can filter by year and month.</li>
+    <li>Finally, in <strong>"Statistics"</strong> you can check your spending behaviour for the current month.</li>
+  </ol>
+  </p>
+</div>
+</br>
+
+<button class="button"><a href="{% url 'index' %}">Go to the top</a></button>
+
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+  <p>Not registered yet? Sign up now: <a href="/PFM_CICE/signup/">signup</a></p> 
+{% endif %} 
+
+</body>
+{% endblock content %}
+
+

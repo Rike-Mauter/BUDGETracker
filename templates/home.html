@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  </br>
+  Hi {{ user.username }}!!
+  
+<p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+  <p>Not registered yet? Sign up now: <a href="/PFM_CICE/signup/">signup</a></p> 
+{% endif %}
+{% endblock %}

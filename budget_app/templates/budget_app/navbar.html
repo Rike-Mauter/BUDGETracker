@@ -1,0 +1,53 @@
+{% load staticfiles %}
+<style>
+.bg-light {
+  width: 100%;
+}
+
+li.nav-item {
+padding-right: 18px;
+padding-left: 18px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+color: white;
+}
+
+.nav-link {
+    font-size: 20px;
+    font-family: Helvetica, Verdana, sans-serif;
+}
+
+.bg-light {
+background-color: 
+rgb(21, 21, 21) !important;
+}
+
+.nav-item:hover{
+   background-color:rgb(242, 65, 151);
+}
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'logo3.png' %}" height="90" width="400" alt="BUDGETracker"></a>
+    <div id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link"  href="{% url 'index' %}">  Home  </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/budget_app/userdetails/">  New Income/ Spending  </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/budget_app/history/"> History</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/budget_app/statistics"> Statistics </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/PFM_CICE/login"> Logout </a>
+        </li>
+      </ul>
+    </div>
+  </nav>

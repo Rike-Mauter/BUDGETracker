@@ -1,0 +1,60 @@
+{% extends 'budget_app/budget_base.html' %}
+
+{% block content %}
+
+<style>
+td {
+  padding: 10px;
+  text-align: left;
+
+}
+</style> 
+
+<body>
+  </br>
+  </br>
+  <h2>Your Spending History</h2>
+  </br>
+
+  <form method="get">
+    {{ filter.form.as_table }}
+    <button type="submit">Search</button>
+  </form>
+
+  </br>
+  
+  <p style="text-align: right;">
+    <button>
+      <a style="color: rgb(41, 39, 39);" href="/budget_app/userdetails/">
+        Add new spending
+      </a>
+    </button>
+  </p> 
+  </br>
+
+  <table id="t01">
+    <tr>
+        <th>Expense name</th>
+        <th>Cost [€]</th>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Notes</th>
+    </tr>
+    {% for item in filter.qs %}
+    <tr>
+      <td>{{ item.expense_name }}</td>
+      <td>{{ item.cost }}</td>
+      <td>{{ item.date_added|date:"d M Y"}}</td>
+      <td>{{ item.category }}</td>
+      {% if item.notes != None %}
+        <td>{{ item.notes }}</td>
+      {% else %}
+        <td> </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+
+</body>
+{% endblock %}
+

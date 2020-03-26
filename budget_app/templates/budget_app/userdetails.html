@@ -1,0 +1,42 @@
+
+{% extends 'budget_app/budget_base.html' %}
+
+{% block content %}
+<style>
+#t02 th, #t01 td {
+    padding: 3px;
+    text-align: left;
+}
+</style>
+
+</br>
+<div style="float: left; padding-left: 5%; padding-bottom: 20%; padding-right: 20%;">
+    <p style="font-size: 30px; color:rgb(212, 58, 120); font-weight: bold;">
+        Add a new income:
+    </p>
+    </br>
+    <form action="/budget_app/display_income/" method="post">
+        {% csrf_token %}
+        <table id="t02">
+            {{form1.as_table}}
+        </table id="t02">
+        </br>
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+
+<div>
+    <p style="font-size: 30px; color:rgb(212, 58, 120); font-weight: bold;">
+        Add a new spending:
+    </p>
+    </br>
+    <form action="/budget_app/display/" method="post">
+        {% csrf_token %}
+        <table id="t02">
+            {{form.as_table}}
+        </table id="t02">
+        </br>
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+{% endblock %}   
